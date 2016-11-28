@@ -3,6 +3,9 @@ package DTOobjects;
 /**
  * Created by Emma og Thomas on 17-10-2016.
  */
+
+//Når en opret bruger skal være i programmet
+
 public class User {
 
     // Attributter oprettes
