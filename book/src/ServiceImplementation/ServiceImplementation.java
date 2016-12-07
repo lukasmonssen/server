@@ -68,7 +68,7 @@ public class ServiceImplementation {
             getUsersSQL = connection.prepareStatement("SELECT * FROM users WHERE type != 1");
 
             // updateUserSQL = connection.prepareStatement("UPDATE user SET phonenumber = ?, address = ?, email = ?, mobilepay = ?, cash = ?, transfer = ? WHERE id = ?");
-            updateUserSQL = connection.prepareStatement("UPDATE users SET username = ?, password = COALESCE(?,password), phonenumber = ?, address = ?, email = ?, mobilepay = ?, cash = ?, transfer = ? WHERE userid = ? AND type != 1");
+            updateUserSQL = connection.prepareStatement("UPDATE users SET username = ?, phonenumber = ?, address = ?, email = ?, mobilepay = ?, cash = ?, transfer = ? WHERE userid = ? AND type != 1");
 
             deleteUserSQL = connection.prepareStatement("DELETE FROM users WHERE userid = ? AND type != 1");
 
@@ -212,14 +212,13 @@ public class ServiceImplementation {
 
         try {
             updateUserSQL.setString(1, user.getUsername());
-            updateUserSQL.setString(2, md5Hash(user.getPassword()));
-            updateUserSQL.setInt(3, user.getPhonenumber());
-            updateUserSQL.setString(4, user.getAddress());
-            updateUserSQL.setString(5, user.getEmail());
-            updateUserSQL.setInt(6, user.getMobilepay());
-            updateUserSQL.setInt(7, user.getCash());
-            updateUserSQL.setInt(8, user.getTransfer());
-            updateUserSQL.setInt(9, user.getId());
+            updateUserSQL.setInt(2, user.getPhonenumber());
+            updateUserSQL.setString(3, user.getAddress());
+            updateUserSQL.setString(4, user.getEmail());
+            updateUserSQL.setInt(5, user.getMobilepay());
+            updateUserSQL.setInt(6, user.getCash());
+            updateUserSQL.setInt(7, user.getTransfer());
+            updateUserSQL.setInt(8, user.getId());
 
             int rowsAffected = updateUserSQL.executeUpdate();
 
