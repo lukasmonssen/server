@@ -238,7 +238,7 @@ public class UserEndpoint {
 
                 JSONObject jsonObject = endpointController.parsePostRequest(httpExchange);
 
-                if (jsonObject.containsKey("username") & jsonObject.containsKey("password") &
+                if (jsonObject.containsKey("username") &
                         jsonObject.containsKey("phonenumber") & jsonObject.containsKey("address") &
                         jsonObject.containsKey("email") & jsonObject.containsKey("mobilepay") &
                         jsonObject.containsKey("cash") & jsonObject.containsKey("transfer")) {
@@ -249,8 +249,6 @@ public class UserEndpoint {
                         if (!jsonObject.get("username").equals("")) {
                             user.setUsername((String) jsonObject.get("username"));
                         }
-
-                        user.setPassword((String) jsonObject.get("password"));
 
                         if (((Long) jsonObject.get("phonenumber")).intValue() != 0) {
                             user.setPhonenumber(((Long) jsonObject.get("phonenumber")).intValue());
