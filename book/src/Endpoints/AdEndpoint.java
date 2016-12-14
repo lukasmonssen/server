@@ -30,7 +30,7 @@ public class AdEndpoint {
 
     static Gson gson = new Gson();
 
-    public static class GetAdsHandler implements HttpHandler {
+        public static class GetAdsHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
             StringBuilder response = new StringBuilder();
 
